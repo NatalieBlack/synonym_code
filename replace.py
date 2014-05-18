@@ -10,7 +10,6 @@ def synonym(word):
         if r.status_code == 200:
             data = r.json()
             results = data[data.keys()[0]]
-            #print results['syn'][0]
             return results['syn'][0]
         else:
            return word
@@ -18,7 +17,7 @@ def synonym(word):
         return word
 
 lang = sys.argv[1]
-langs = ["ruby"]
+langs = ["ruby", "python"]
 if lang not in langs:
     sys.exit("Invalid language option.  Supported language options include: " + str(langs))
 
@@ -35,7 +34,6 @@ for line in keys:
 keys.close()
 
 contents = src.read()
-print contents
 src.close()
 
 g = tokenize.generate_tokens(open(srcfn).readline)
