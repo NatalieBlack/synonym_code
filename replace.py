@@ -16,22 +16,8 @@ def synonym(word):
     except:
         return word
 
-lang = sys.argv[1]
-langs = ["ruby", "python"]
-if lang not in langs:
-    sys.exit("Invalid language option.  Supported language options include: " + str(langs))
-
-keys = open("keywords/" + lang + ".txt")
-
-srcfn = sys.argv[2]
+srcfn = sys.argv[1]
 src = open(srcfn)
-
-kws = []
-
-for line in keys:
-    kws.append(line.strip())
-
-keys.close()
 
 contents = src.read()
 src.close()
