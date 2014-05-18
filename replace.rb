@@ -35,8 +35,8 @@ end
 
 IO.foreach(src) do |line|
   line.split(" ").each do |word|
-    if kws.include? word
-      line.gsub!(" #{word} ", " #{synonym(word)} ")
+    if kws.include? word.strip
+      line.gsub!(" #{word} ", " #{synonym(word.strip)} ")
     end
   end
   puts line
